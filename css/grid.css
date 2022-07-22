@@ -1,0 +1,124 @@
+html, body {
+    box-sizing: border-box;
+}
+
+.card {
+    height: 300px;
+    width: 300px;
+    border-radius: 4px;
+    display: grid;
+    place-items: center;
+    grid-template-areas: "main";
+    overflow: hidden;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.card > .image {
+    width: 100%;
+    aspect-ratio: 1/1;
+    object-fit: cover;
+    transition: transform 400ms, filter 400ms;
+}
+
+.card > * {
+    grid-area: main;
+}
+
+.card > .text {
+    opacity: 0;
+    color: white;
+    font-size: 1.8em;
+    transition: transform 400ms, filter 400ms;
+}
+
+.card:is(:hover, :focus) > .image {
+    /* resmi yakınlaştırmada kullanırız */
+    transform: scale(1.1);
+
+    /* resmin parlaklığını ayarlarız */
+    filter: brightness(0.4);
+}
+
+.card:is(:hover, :focus) > .text {
+    transform: scale(1.2);
+    opacity: 1;
+}
+
+.container {
+    background-color: black;
+    margin-top: 20px;
+    width: 600px;
+    display: grid;
+    /*
+     grid-template-rows: 100px 200px;  --> Grid satır yüksekliği
+     grid-template-columns: 300px 200px 100px; --> Grid sütun genişliği
+     grid-template: 50px 100px / 200px 100px 300px;
+     */
+    grid-template: repeat(2, 200px) / 1fr 1fr 1fr;
+    /*
+    row-gap: 10px; --> satırlar arası boşluk
+    column-gap: 20px; --> sütunlar arası boşluk
+    */
+    gap: 10px 20px;
+    grid-auto-rows: 300px; /* Gridin satır sayısı 2 yi geçtiği zaman otomatik olarak 300px yüksekliğinde satır eklememizi sağlar */
+    grid-template-areas:
+            "esra menu footer"
+            "kaya sans header";
+}
+
+.box1 {
+    background-color: red;
+    /*
+    grid-column-start: 1;
+    grid-column-end: 3;
+    */
+    /*
+    grid-column: 1/3;
+     */
+    grid-area: esra;
+    display: grid;
+    align-items: center;
+    justify-items: center;
+}
+
+.box2 {
+    background-color: deepskyblue;
+    grid-area: menu;
+}
+
+.box3 {
+    background-color: deeppink;
+    grid-area: footer;
+}
+
+.box4 {
+    background-color: orange;
+    grid-area: kaya;
+}
+
+.box5 {
+    background-color: saddlebrown;
+    grid-area: sans;
+}
+
+.box6 {
+    background-color: chartreuse;
+    grid-area: header
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
